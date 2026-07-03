@@ -1,0 +1,255 @@
+0 verbose cli /usr/bin/node /usr/bin/npm
+1 info using npm@10.9.8
+2 info using node@v22.23.1
+3 silly config load:file:/usr/lib/node_modules/npm/npmrc
+4 silly config load:file:/opt/minecraft-ai/bot/.npmrc
+5 silly config load:file:/home/liwan/.npmrc
+6 silly config load:file:/usr/etc/npmrc
+7 verbose title npm install mineflayer mineflayer-pathfinder vec3 dotenv express socket.io cors
+8 verbose argv "install" "mineflayer" "mineflayer-pathfinder" "vec3" "dotenv" "express" "socket.io" "cors"
+9 verbose logfile logs-max:10 dir:/home/liwan/.npm/_logs/2026-07-03T22_07_07_437Z-
+10 verbose logfile /home/liwan/.npm/_logs/2026-07-03T22_07_07_437Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+13 silly idealTree buildDeps
+14 silly fetch manifest cors@^2.8.6
+15 silly packumentCache full:https://registry.npmjs.org/cors cache-miss
+16 http cache https://registry.npmjs.org/cors 56ms (cache hit)
+17 silly packumentCache full:https://registry.npmjs.org/cors set size:77956 disposed:false
+18 silly fetch manifest dotenv@^17.4.2
+19 silly packumentCache full:https://registry.npmjs.org/dotenv cache-miss
+20 http cache https://registry.npmjs.org/dotenv 8ms (cache hit)
+21 silly packumentCache full:https://registry.npmjs.org/dotenv set size:277818 disposed:false
+22 silly fetch manifest express@^5.2.1
+23 silly packumentCache full:https://registry.npmjs.org/express cache-miss
+24 http cache https://registry.npmjs.org/express 5ms (cache hit)
+25 silly packumentCache full:https://registry.npmjs.org/express set size:804933 disposed:false
+26 silly fetch manifest mineflayer@^4.37.1
+27 silly packumentCache full:https://registry.npmjs.org/mineflayer cache-miss
+28 http cache https://registry.npmjs.org/mineflayer 7ms (cache hit)
+29 silly packumentCache full:https://registry.npmjs.org/mineflayer set size:499010 disposed:false
+30 silly fetch manifest mineflayer-pathfinder@^2.4.5
+31 silly packumentCache full:https://registry.npmjs.org/mineflayer-pathfinder cache-miss
+32 http cache https://registry.npmjs.org/mineflayer-pathfinder 6ms (cache hit)
+33 silly packumentCache full:https://registry.npmjs.org/mineflayer-pathfinder set size:191418 disposed:false
+34 silly fetch manifest socket.io@^4.8.3
+35 silly packumentCache full:https://registry.npmjs.org/socket.io cache-miss
+36 http cache https://registry.npmjs.org/socket.io 4ms (cache hit)
+37 silly packumentCache full:https://registry.npmjs.org/socket.io set size:379231 disposed:false
+38 silly fetch manifest vec3@^0.2.0
+39 silly packumentCache full:https://registry.npmjs.org/vec3 cache-miss
+40 http cache https://registry.npmjs.org/vec3 3ms (cache hit)
+41 silly packumentCache full:https://registry.npmjs.org/vec3 set size:30490 disposed:false
+42 silly placeDep ROOT cors@2.8.6 REPLACE for: bot@1.0.0 want: ^2.8.6
+43 silly placeDep ROOT dotenv@17.4.2 REPLACE for: bot@1.0.0 want: ^17.4.2
+44 silly placeDep ROOT express@5.2.1 REPLACE for: bot@1.0.0 want: ^5.2.1
+45 silly placeDep ROOT mineflayer@4.37.1 REPLACE for: bot@1.0.0 want: ^4.37.1
+46 silly placeDep ROOT mineflayer-pathfinder@2.4.5 REPLACE for: bot@1.0.0 want: ^2.4.5
+47 silly placeDep ROOT socket.io@4.8.3 REPLACE for: bot@1.0.0 want: ^4.8.3
+48 silly placeDep ROOT vec3@0.2.0 REPLACE for: bot@1.0.0 want: ^0.2.0
+49 silly reify moves {}
+50 silly audit bulk request {
+50 silly audit   '@azure/msal-common': [ '14.16.1' ],
+50 silly audit   '@azure/msal-node': [ '2.16.3' ],
+50 silly audit   '@socket.io/component-emitter': [ '3.1.2' ],
+50 silly audit   '@types/cors': [ '2.8.19' ],
+50 silly audit   '@types/node': [ '26.1.0' ],
+50 silly audit   '@types/node-rsa': [ '1.1.4' ],
+50 silly audit   '@types/readable-stream': [ '4.0.24' ],
+50 silly audit   '@types/ws': [ '8.18.1' ],
+50 silly audit   '@xboxreplay/xboxlive-auth': [ '5.1.0' ],
+50 silly audit   'abort-controller': [ '3.0.0' ],
+50 silly audit   accepts: [ '2.0.0', '1.3.8' ],
+50 silly audit   'aes-js': [ '3.1.2' ],
+50 silly audit   ajv: [ '6.15.0' ],
+50 silly audit   asn1: [ '0.2.3' ],
+50 silly audit   'base64-js': [ '1.5.1' ],
+50 silly audit   base64id: [ '2.0.0' ],
+50 silly audit   'body-parser': [ '2.3.0' ],
+50 silly audit   'content-type': [ '2.0.0', '1.0.5' ],
+50 silly audit   buffer: [ '6.0.3' ],
+50 silly audit   'buffer-equal': [ '1.0.1' ],
+50 silly audit   'buffer-equal-constant-time': [ '1.0.1' ],
+50 silly audit   bytes: [ '3.1.2' ],
+50 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+50 silly audit   'call-bound': [ '1.0.4' ],
+50 silly audit   commander: [ '2.20.3' ],
+50 silly audit   'content-disposition': [ '1.1.0' ],
+50 silly audit   cookie: [ '0.7.2' ],
+50 silly audit   'cookie-signature': [ '1.2.2' ],
+50 silly audit   debug: [ '4.4.3' ],
+50 silly audit   depd: [ '2.0.0' ],
+50 silly audit   'discontinuous-range': [ '1.0.0' ],
+50 silly audit   'dunder-proto': [ '1.0.1' ],
+50 silly audit   'ecdsa-sig-formatter': [ '1.0.11' ],
+50 silly audit   'ee-first': [ '1.1.1' ],
+50 silly audit   encodeurl: [ '2.0.0' ],
+50 silly audit   'endian-toggle': [ '0.0.0' ],
+50 silly audit   'engine.io': [ '6.6.9' ],
+50 silly audit   'engine.io-parser': [ '5.2.3' ],
+50 silly audit   'mime-db': [ '1.52.0', '1.54.0' ],
+50 silly audit   'mime-types': [ '2.1.35', '3.0.2' ],
+50 silly audit   negotiator: [ '0.6.3', '1.0.0' ],
+50 silly audit   'es-define-property': [ '1.0.1' ],
+50 silly audit   'es-errors': [ '1.3.0' ],
+50 silly audit   'es-object-atoms': [ '1.1.2' ],
+50 silly audit   'escape-html': [ '1.0.3' ],
+50 silly audit   etag: [ '1.8.1' ],
+50 silly audit   'event-target-shim': [ '5.0.1' ],
+50 silly audit   events: [ '3.3.0' ],
+50 silly audit   'fast-deep-equal': [ '3.1.3' ],
+50 silly audit   'fast-json-stable-stringify': [ '2.1.0' ],
+50 silly audit   finalhandler: [ '2.1.1' ],
+50 silly audit   forwarded: [ '0.2.0' ],
+50 silly audit   fresh: [ '2.0.0' ],
+50 silly audit   'function-bind': [ '1.1.2' ],
+50 silly audit   'get-intrinsic': [ '1.3.0' ],
+50 silly audit   'get-proto': [ '1.0.1' ],
+50 silly audit   gopd: [ '1.2.0' ],
+50 silly audit   'has-symbols': [ '1.1.0' ],
+50 silly audit   hasown: [ '2.0.4' ],
+50 silly audit   'http-errors': [ '2.0.1' ],
+50 silly audit   'iconv-lite': [ '0.7.3' ],
+50 silly audit   ieee754: [ '1.2.1' ],
+50 silly audit   inherits: [ '2.0.4' ],
+50 silly audit   'ipaddr.js': [ '1.9.1' ],
+50 silly audit   'is-promise': [ '4.0.0' ],
+50 silly audit   'json-schema-traverse': [ '0.4.1' ],
+50 silly audit   jsonwebtoken: [ '9.0.3' ],
+50 silly audit   jwa: [ '2.0.1' ],
+50 silly audit   jws: [ '4.0.1' ],
+50 silly audit   'lodash.includes': [ '4.3.0' ],
+50 silly audit   'lodash.isboolean': [ '3.0.3' ],
+50 silly audit   'lodash.isinteger': [ '4.0.4' ],
+50 silly audit   'lodash.isnumber': [ '3.0.3' ],
+50 silly audit   'lodash.isplainobject': [ '4.0.6' ],
+50 silly audit   'lodash.isstring': [ '4.0.1' ],
+50 silly audit   'lodash.merge': [ '4.6.2' ],
+50 silly audit   'lodash.once': [ '4.1.1' ],
+50 silly audit   'lodash.reduce': [ '4.6.0' ],
+50 silly audit   macaddress: [ '0.5.4' ],
+50 silly audit   'math-intrinsics': [ '1.1.0' ],
+50 silly audit   'media-typer': [ '1.1.0' ],
+50 silly audit   'merge-descriptors': [ '2.0.0' ],
+50 silly audit   'minecraft-data': [ '3.111.0' ],
+50 silly audit   'minecraft-folder-path': [ '1.2.0' ],
+50 silly audit   'minecraft-protocol': [ '1.66.2' ],
+50 silly audit   vec3: [ '0.1.10', '0.2.0' ],
+50 silly audit   mojangson: [ '2.0.4' ],
+50 silly audit   moo: [ '0.5.3' ],
+50 silly audit   ms: [ '2.1.3' ],
+50 silly audit   nearley: [ '2.20.1' ],
+50 silly audit   'node-fetch': [ '2.7.0' ],
+50 silly audit   'node-rsa': [ '0.4.2' ],
+50 silly audit   'object-assign': [ '4.1.1' ],
+50 silly audit   'object-inspect': [ '1.13.4' ],
+50 silly audit   'on-finished': [ '2.4.1' ],
+50 silly audit   once: [ '1.4.0' ],
+50 silly audit   parseurl: [ '1.3.3' ],
+50 silly audit   'path-to-regexp': [ '8.4.2' ],
+50 silly audit   'prismarine-auth': [ '3.1.1' ],
+50 silly audit   'prismarine-biome': [ '1.4.0' ],
+50 silly audit   'prismarine-block': [ '1.23.0' ],
+50 silly audit   'prismarine-chat': [ '1.13.0' ],
+50 silly audit   'prismarine-chunk': [ '1.40.0' ],
+50 silly audit   'prismarine-entity': [ '2.6.0' ],
+50 silly audit   'prismarine-item': [ '1.18.0' ],
+50 silly audit   'prismarine-nbt': [ '2.8.0' ],
+50 silly audit   'prismarine-physics': [ '1.11.0' ],
+50 silly audit   'prismarine-realms': [ '1.6.0' ],
+50 silly audit   'prismarine-recipe': [ '1.5.0' ],
+50 silly audit   'prismarine-registry': [ '1.12.0' ],
+50 silly audit   'prismarine-windows': [ '2.10.0' ],
+50 silly audit   'typed-emitter': [ '2.1.0', '1.4.0' ],
+50 silly audit   'prismarine-world': [ '3.7.0' ],
+50 silly audit   process: [ '0.11.10' ],
+50 silly audit   protodef: [ '1.19.0' ],
+50 silly audit   'protodef-validator': [ '1.4.0' ],
+50 silly audit   'proxy-addr': [ '2.0.7' ],
+50 silly audit   punycode: [ '2.3.1' ],
+50 silly audit   qs: [ '6.15.3' ],
+50 silly audit   'railroad-diagrams': [ '1.0.0' ],
+50 silly audit   randexp: [ '0.4.6' ],
+50 silly audit   'range-parser': [ '1.3.0' ],
+50 silly audit   'raw-body': [ '3.0.2' ],
+50 silly audit   'readable-stream': [ '4.7.0' ],
+50 silly audit   ret: [ '0.1.15' ],
+50 silly audit   router: [ '2.2.0' ],
+50 silly audit   rxjs: [ '7.8.2' ],
+50 silly audit   'safe-buffer': [ '5.2.1' ],
+50 silly audit   'safer-buffer': [ '2.1.2' ],
+50 silly audit   semver: [ '7.8.5' ],
+50 silly audit   send: [ '1.2.1' ],
+50 silly audit   'serve-static': [ '2.2.1' ],
+50 silly audit   setprototypeof: [ '1.2.0' ],
+50 silly audit   'side-channel': [ '1.1.1' ],
+50 silly audit   'side-channel-list': [ '1.0.1' ],
+50 silly audit   'side-channel-map': [ '1.0.1' ],
+50 silly audit   'side-channel-weakmap': [ '1.0.2' ],
+50 silly audit   'smart-buffer': [ '4.2.0' ],
+50 silly audit   'socket.io-adapter': [ '2.5.8' ],
+50 silly audit   'socket.io-parser': [ '4.2.6' ],
+50 silly audit   statuses: [ '2.0.2' ],
+50 silly audit   string_decoder: [ '1.3.0' ],
+50 silly audit   toidentifier: [ '1.0.1' ],
+50 silly audit   tr46: [ '0.0.3' ],
+50 silly audit   tslib: [ '2.8.1' ],
+50 silly audit   'type-is': [ '2.1.0' ],
+50 silly audit   uint4: [ '0.1.2' ],
+50 silly audit   'undici-types': [ '8.3.0' ],
+50 silly audit   unpipe: [ '1.0.0' ],
+50 silly audit   'uri-js': [ '4.4.1' ],
+50 silly audit   uuid: [ '8.3.2', '10.0.0' ],
+50 silly audit   'uuid-1345': [ '1.0.2' ],
+50 silly audit   vary: [ '1.1.2' ],
+50 silly audit   'webidl-conversions': [ '3.0.1' ],
+50 silly audit   'whatwg-url': [ '5.0.0' ],
+50 silly audit   wrappy: [ '1.0.2' ],
+50 silly audit   ws: [ '8.21.0' ],
+50 silly audit   'xxhash-wasm': [ '0.4.2' ],
+50 silly audit   yggdrasil: [ '1.8.0' ],
+50 silly audit   cors: [ '2.8.6' ],
+50 silly audit   dotenv: [ '17.4.2' ],
+50 silly audit   express: [ '5.2.1' ],
+50 silly audit   mineflayer: [ '4.37.1' ],
+50 silly audit   'mineflayer-pathfinder': [ '2.4.5' ],
+50 silly audit   'socket.io': [ '4.8.3' ]
+50 silly audit }
+51 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 296ms
+52 silly audit report {
+52 silly audit report   uuid: [
+52 silly audit report     {
+52 silly audit report       id: 1119441,
+52 silly audit report       url: 'https://github.com/advisories/GHSA-w5hq-g745-h8pq',
+52 silly audit report       title: 'uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided',
+52 silly audit report       severity: 'moderate',
+52 silly audit report       vulnerable_versions: '<11.1.1',
+52 silly audit report       cwe: [Array],
+52 silly audit report       cvss: [Object]
+52 silly audit report     }
+52 silly audit report   ]
+52 silly audit report }
+53 silly packumentCache corgi:https://registry.npmjs.org/uuid cache-miss
+54 http cache https://registry.npmjs.org/uuid 6ms (cache hit)
+55 silly packumentCache corgi:https://registry.npmjs.org/uuid set size:82973 disposed:false
+56 silly packumentCache corgi:https://registry.npmjs.org/@azure%2fmsal-node cache-miss
+57 silly packumentCache corgi:https://registry.npmjs.org/yggdrasil cache-miss
+58 http cache https://registry.npmjs.org/yggdrasil 6ms (cache hit)
+59 silly packumentCache corgi:https://registry.npmjs.org/yggdrasil set size:21431 disposed:false
+60 http cache https://registry.npmjs.org/@azure%2fmsal-node 8ms (cache hit)
+61 silly packumentCache corgi:https://registry.npmjs.org/@azure%2fmsal-node set size:238957 disposed:false
+62 silly packumentCache corgi:https://registry.npmjs.org/minecraft-protocol cache-miss
+63 http cache https://registry.npmjs.org/minecraft-protocol 8ms (cache hit)
+64 silly packumentCache corgi:https://registry.npmjs.org/minecraft-protocol set size:274653 disposed:false
+65 silly packumentCache corgi:https://registry.npmjs.org/prismarine-auth cache-miss
+66 http cache https://registry.npmjs.org/prismarine-auth 3ms (cache hit)
+67 silly packumentCache corgi:https://registry.npmjs.org/prismarine-auth set size:47803 disposed:false
+68 silly packumentCache corgi:https://registry.npmjs.org/mineflayer cache-miss
+69 http cache https://registry.npmjs.org/mineflayer 6ms (cache hit)
+70 silly packumentCache corgi:https://registry.npmjs.org/mineflayer set size:278084 disposed:false
+71 verbose cwd /opt/minecraft-ai/bot
+72 verbose os Linux 6.8.0-124-generic
+73 verbose node v22.23.1
+74 verbose npm  v10.9.8
+75 verbose exit 0
+76 info ok
