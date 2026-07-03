@@ -48,3 +48,8 @@ Starting org.bukkit.craftbukkit.Main
 [22:08:34 INFO]: UUID of player AIPlayer is 09a0708d-b64f-3ac7-9e38-6754681a7416
 [22:08:42 INFO]: [38;5;11mAIPlayer joined the game[0m
 [22:08:42 INFO]: AIPlayer[/127.0.0.1:35056] logged in with entity id 25 at ([world]-413.5, 77.0, 93.5)
+[22:18:18 INFO]: AIPlayer was slain by Zombie
+[22:20:05 INFO]: AIPlayer was slain by Zombie
+[22:21:03 INFO]: AIPlayer was shot by Skeleton
+[22:21:57 INFO]: AIPlayer was shot by Skeleton
+[22:22:10 INFO]: AIPlayer was slain by Zombie
