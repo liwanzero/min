@@ -24,9 +24,13 @@ export class GroqBrain {
       const systemPrompt = this.buildSystemPrompt();
       const userPrompt = this.buildUserPrompt(botState, availableTasks);
 
-      logger.debug('Sending request to Groq', { botId: botState.botId || botState.username });
+      logger.debug('Sending request to Groq', { 
+        botId: botState.botId || botState.username,
+        model: this.model 
+      });
 
-      const message = await this.client.messages.create({
+      // Usa la API correcta de Groq: chat.completions.create
+      const completion = await this.client.chat.completions.create({
         model: this.model,
         max_tokens: this.maxTokens,
         temperature: this.temperature,
@@ -34,12 +38,16 @@ export class GroqBrain {
         messages: [{ role: 'user', content: userPrompt }],
       });
 
-      const response = message.content[0].text;
+      const response = completion.choices[0].message.content;
       logger.debug('Groq response received', { response: response.substring(0, 100) });
 
       return this.parseDecision(response, availableTasks);
     } catch (error) {
-      logger.error('Error thinking with Groq', { error: error.message });
+      logger.error('Error thinking with Groq', { 
+        error: error.message,
+        status: error.status,
+        type: error.type
+      });
       return this.fallbackDecision(availableTasks);
     }
   }
@@ -84,7 +92,7 @@ Considera:
 - Mobs cercanos: ${botState.nearbyMobs?.length || 0}
 - Tareas disponibles: ${availableTasks.join(', ')}
 
-¿Qué debo hacer ahora?`;
+¿Qué debo hacer ahora? Responde solo con el JSON.`;
   }
 
   /**
@@ -114,7 +122,7 @@ Considera:
     const action = availableTasks[Math.floor(Math.random() * availableTasks.length)];
     return {
       action,
-      reason: 'fallback decision',
+      reason: 'fallback decision (Groq error)',
       priority: 3,
     };
   }
