@@ -8,14 +8,11 @@ export class Population {
   constructor(options = {}) {
     this.generationNumber = options.generationNumber || 1;
     this.populationSize = options.populationSize || 3;
-    this.serverHost = options.serverHost || 'localhost';
-    this.serverPort = options.serverPort || 25565;
-    this.sessionDuration = options.sessionDuration || 5 * 60 * 1000; // 5 minutos
+    this.sessionDuration = options.sessionDuration || 5 * 60 * 1000;
     
     this.bots = [];
     this.deadBots = [];
     this.inheritedMemory = options.inheritedMemory || [];
-    this.collectiveMemory = [];
     
     this.startTime = null;
     this.stats = {
@@ -40,28 +37,21 @@ export class Population {
     for (let i = 0; i < this.populationSize; i++) {
       try {
         const bot = new MinecraftBot({
-          host: this.serverHost,
-          port: this.serverPort,
           generation: this.generationNumber,
           inheritedMemory: this.inheritedMemory,
           username: `AIBot_Gen${this.generationNumber}_${i}_${Date.now()}`,
         });
 
-        // Conecta el bot
         const connected = await bot.connect();
         if (connected) {
           this.bots.push(bot);
           this.stats.totalBots++;
         }
 
-        // Pequeña pausa entre conexiones
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 500));
 
       } catch (error) {
-        logger.error('Failed to create bot', {
-          generation: this.generationNumber,
-          error: error.message,
-        });
+        logger.error('Failed to create bot', { error: error.message });
       }
     }
 
@@ -85,9 +75,8 @@ export class Population {
 
     const tickInterval = setInterval(() => {
       this.tick();
-    }, 1000); // Un tick cada segundo
+    }, 1000);
 
-    // Ejecuta durante el tiempo especificado
     await new Promise(resolve => {
       setTimeout(() => {
         clearInterval(tickInterval);
@@ -95,7 +84,6 @@ export class Population {
       }, this.sessionDuration);
     });
 
-    // Detiene todos los bots
     await this.stop();
   }
 
@@ -105,52 +93,28 @@ export class Population {
   async tick() {
     const aliveBots = this.bots.filter(bot => bot.isAlive);
 
-    if (aliveBots.length === 0) {
-      logger.info('All bots are dead', { generation: this.generationNumber });
-      return;
-    }
+    if (aliveBots.length === 0) return;
 
-    // Cada bot ejecuta su tick
     for (const bot of aliveBots) {
       try {
         await bot.tick();
       } catch (error) {
-        logger.error('Bot tick error', {
-          username: bot.username,
-          error: error.message,
-        });
+        logger.error('Bot tick error', { error: error.message });
         bot.isAlive = false;
       }
     }
 
-    // Revisa bots muertos
     for (const bot of this.bots.filter(b => !b.isAlive)) {
       if (!bot.stats.deathTime) {
-        // Registra la muerte
         const summary = bot.getSummary();
         this.deadBots.push(summary);
-
-        // Actualiza estadísticas
         this.stats.botsDead++;
         this.stats.totalBlocksMined += bot.stats.blocksMinned;
         this.stats.totalItemsCrafted += bot.stats.itemsCrafted;
         this.stats.totalDistance += bot.stats.distanceTraveled;
         this.stats.totalMobsKilled += bot.stats.mobsKilled;
-
-        // Colecciona memoria
-        this.collectiveMemory.push({
-          username: bot.username,
-          memory: bot.memory,
-          reason: bot.stats.deathReason,
-        });
-
-        // Marca como registrado
         bot.stats.deathTime = Date.now();
-
-        logger.info('Bot death recorded', {
-          username: bot.username,
-          reason: bot.stats.deathReason,
-        });
+        logger.info('Bot death recorded', { username: bot.username, reason: bot.stats.deathReason });
       }
     }
   }
@@ -160,19 +124,9 @@ export class Population {
    */
   async stop() {
     logger.info('Stopping population', { generation: this.generationNumber });
-
     for (const bot of this.bots) {
-      try {
-        await bot.disconnect();
-      } catch (error) {
-        logger.warn('Error disconnecting bot', { error: error.message });
-      }
+      await bot.disconnect();
     }
-
-    logger.info('Population stopped', {
-      generation: this.generationNumber,
-      stats: this.stats,
-    });
   }
 
   /**
@@ -180,14 +134,9 @@ export class Population {
    */
   getLearnedLessons() {
     const lessons = [];
-
-    for (const memory of this.collectiveMemory) {
-      if (memory.memory.learnedRules) {
-        lessons.push(...memory.memory.learnedRules);
-      }
+    for (const bot of this.bots) {
+      lessons.push(...bot.brain.getLessons());
     }
-
-    // Elimina duplicados
     return [...new Set(lessons)];
   }
 
@@ -196,16 +145,8 @@ export class Population {
    */
   getBestBot() {
     return this.bots.reduce((best, bot) => {
-      const scoreA = (best.stats.blocksMinned * 0.3) +
-                      (best.stats.itemsCrafted * 0.4) +
-                      (best.stats.mobsKilled * 0.2) +
-                      (best.stats.distanceTraveled * 0.1);
-      
-      const scoreB = (bot.stats.blocksMinned * 0.3) +
-                      (bot.stats.itemsCrafted * 0.4) +
-                      (bot.stats.mobsKilled * 0.2) +
-                      (bot.stats.distanceTraveled * 0.1);
-
+      const scoreA = (best.stats.blocksMinned * 0.3) + (best.stats.itemsCrafted * 0.4);
+      const scoreB = (bot.stats.blocksMinned * 0.3) + (bot.stats.itemsCrafted * 0.4);
       return scoreB > scoreA ? bot : best;
     });
   }
